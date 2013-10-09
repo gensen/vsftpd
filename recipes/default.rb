@@ -45,7 +45,11 @@ template "/etc/vsftpd.conf" do
     :ssl_cert_path => node[:vsftpd][:ssl_cert_path],
     :ssl_private_key_path => node[:vsftpd][:ssl_private_key_path],
     :ssl_certs_basename => node[:vsftpd][:ssl_certs_basename],
-    :chroot_local_user => node[:vsftpd][:chroot_local_user]
+    :chroot_local_user => node[:vsftpd][:chroot_local_user],
+    :pasv_min_port => node[:vsftpd][:pasv_min_port],
+    :pasv_max_port => node[:vsftpd][:pasv_max_port],
+    :pasv_address => node[:vsftpd][:pasv_address],
+    :pasv_resolve => node[:vsftpd][:pasv_resolve]
   )
   notifies :restart, resources(:service => "vsftpd")
 end
